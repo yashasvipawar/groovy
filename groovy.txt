@@ -1,0 +1,422 @@
+1.Number Data Types 
+a. What data type is the number 2? How about 20? 200? Keep adding zeros and watch the data type change until it reaches BigInteger. Then do the same for 2.0. 
+ans:package assignment
+
+def x=2
+println(x.getClass())
+def y=20
+println(y.getClass())
+def z=200
+println(z.getClass())
+def b=2000
+println(b.getClass())
+def c=20000
+println(c.getClass())
+def d=200000
+println(d.getClass())
+def e=2000000
+println(e.getClass())
+def f=20000000
+println(f.getClass())
+def g=200000000
+println(g.getClass())
+def h=2000000000
+println(h.getClass())
+def i=20000000000
+println(i.getClass())
+def j=200000000000
+println(j.getClass())
+def k=2000000000000
+println(k.getClass())
+def l=20000000000000
+println(l.getClass())
+def m=200000000000000
+println(m.getClass())
+def n=2000000000000000
+println(n.getClass())
+def o=20000000000000000
+println(o.getClass())
+def p=200000000000000000
+println(p.getClass())
+def q=2000000000000000000
+println(q.getClass())
+def a=20000000000000000000
+println(a.getClass())
+def r=2.0
+println(r.getClass())
+def s=2.0000000000000000000
+println(s.getClass())
+
+op:class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Integer
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.lang.Long
+class java.math.BigInteger
+class java.math.BigDecimal
+class java.math.BigDecimal
+
+b. Declare a variable x of type def and assign it the sum of 1 and 1.5. What is the resulting data type? 
+ans:def x=1+1.5
+println x
+println(x.getClass())
+
+op:2.5
+class java.math.BigDecimal
+
+c. What do you get when you divide 5 by 2? What is the resulting data type? If you wanted to do integer division (no remainder), what method would you call? 
+ans:def x=5/2
+println x
+println(x.getClass())
+//for integer division
+def int y=5/2
+println y
+println(y.getClass())
+
+op:
+2.5
+class java.math.BigDecimal
+2
+class java.lang.Integer
+
+2.Wrapper Classes:From the associated wrapper classes, find the min and max values for the Java primitives: byte, short, int, long, float, double. 
+ans:println Byte.MIN_VALUE
+println Byte.MAX_VALUE
+println("---------------------------------------")
+println Short.MIN_VALUE
+println Short.MAX_VALUE
+println("---------------------------------------")
+println Integer.MIN_VALUE
+println Integer.MAX_VALUE
+println("---------------------------------------")
+println Float.MIN_VALUE
+println Float.MAX_VALUE
+println("---------------------------------------")
+println Long.MIN_VALUE
+println Long.MAX_VALUE
+println("---------------------------------------")
+println Double.MIN_VALUE
+println Double.MAX_VALUE
+
+op:-128
+127
+---------------------------------------
+-32768
+32767
+---------------------------------------
+-2147483648
+2147483647
+---------------------------------------
+1.4E-45
+3.4028235E38
+---------------------------------------
+-9223372036854775808
+9223372036854775807
+---------------------------------------
+4.9E-324
+1.7976931348623157E308
+
+3.2s Complement:Create a byte variable with its maximum value. What do you get when you add 1 to it?
+ans:// maximum value of byte is 127
+def byte a=127+1
+println a
+
+op:-128
+
+4.Strings and GroovyStrings.
+a. How many characters are in the string "Hello, Groovy!"? 
+ans:str1="Hello, Groovy!"
+println str1.length()
+
+op:14
+
+b. Define a string variable containing a name. Print a hello statement with your name using string concatenation, then using a Groovy string. 
+ans:str2="yashasvi"
+println"hello "+str2
+
+op:hello yashasvi
+
+c. Demonstrate that "racecar" is a palindrome by comparing it to its reverse. Do the same with "Bob", removing case sensitivity first. 
+ans:str3="racecar"
+println str3.reverse()
+
+str4="Bob"
+println str4.toLowerCase().reverse()
+
+op:racecar
+bob
+
+d. Define a string variable containing the sentence, "Hello, World. How are you?". Split the sentence into an array using the split method. Count the number of words. Do the same using the tokenize method. 
+ans:str5="Hello, World. How are you?"
+println str5.split()
+
+op:[Hello,, World., How, are, you?]
+
+//count words
+def str7="Hello, World. How are you?"
+a=str7.split(/\w/)
+size=a.size()
+space=a.count("")
+wordcount=size-space
+println "total number of words are:"+wordcount
+
+op:total number of words are:5
+
+//using tokenize
+def str7="Hello, World. How are you?"
+a=str7.tokenize()
+size=a.size()
+space=a.count("")
+wordcount=size-space
+println "total number of words are:"+wordcount
+
+op:total number of words are:5
+
+e. Using the same sentence, use array notation (square brackets) to print the substring "World". 
+ans:str6="Hello, World. How are you?"
+println str6[7..11]
+
+op:World
+
+f. Use array notation to print the last word, but reversed. 
+ans:str8="Hello, World. How are you?"
+println str8[24..22]
+
+op:ouy
+
+5.Prime Numbers 
+Write a method called isPrime that takes an integer argument and returns a boolean. Determine whether the number is prime by dividing it by all numbers from 2 up to one less than the number. 
+That limit is too high, of course. How high do you have to check to be sure whether you've gone far enough?
+ans:class isprime {
+	
+	static boolean isPrime(int n)
+	{
+ 
+		
+		if (n <= 1)
+			return false;
+ 
+		
+		else if (n == 2)
+			return true;
+ 
+		
+		else if (n % 2 == 0)
+			return false;
+ 
+		
+		for (int i = 3; i <= Math.sqrt(n); i += 2)
+		{
+			if (n % i == 0)
+				return false;
+		}
+		return true;
+	}
+
+	static void main(args) {
+		if (isPrime(2))
+            println("true")
+ 
+        else
+            println("false")
+		
+	}
+}
+
+op:true
+
+1.Sorting Strings 
+Create a list of strings. Sort them alphabetically. Sort them by length. Sort them by length in descending order.
+ans:def fruits=["apples","mango","banana","watermelon"]
+//Sorting alphabetically. 
+println fruits.sort()
+// Sort them by length.
+println fruits.sort{it.size()}
+//Sort them by length in descending order. 
+println fruits.sort{-it.size()}
+
+op:[apples, banana, mango, watermelon]
+[mango, apples, banana, watermelon]
+[watermelon, apples, banana, mango]
+
+Advanced: Sort by length, then sort equal length strings alphabetically .
+ans:def list1=["mike","john","jake","meera","juili"]
+a= list1.sort{it.size()} 
+println a
+b=list1.sort()
+println b
+
+op:[jake, john, juili, meera, mike]
+
+2.Processing a list of numbers 
+Create a list of numbers. Add them together. First double each number, then add them up. Compute their average.
+ans:def a=[1,2,3,4,5]
+println a.sum()
+b=a.collect{i -> i*2}
+println b
+println b.sum()
+def average=b.sum()/b.size()
+println"average is "+average
+
+op:15
+[2, 4, 6, 8, 10]
+30
+average is 6
+
+3.Reading a web page 
+Using the Groovy JDK, access your home page and display the source code. Print the length of each line of the home page. 
+ans:String filepath="C:/Users/pawar/eclipse-workspace/FirstGroovyProject/data.txt"
+File myfile=new File(filepath)
+println myfile.text
+ for(line in myfile)
+	 println line.length()
+
+op:line 1
+line 2
+line 3
+hello world
+hii
+6
+6
+6
+11
+3
+
+
+4.Closures as a filter 
+Create a list of numbers. Print all elements greater than zero. 
+ans:list2=[-1,2,30,5,4,-5,0,8]
+for(i in list2)
+	if(i>0)
+		println i
+op:
+2
+30
+5
+4
+8
+
+5.Multi-line strings 
+Make a multi-line string. Compute the number of vowels. 
+str1="""An apple a day keeps the doctor away. 
+         Old is gold
+         Okay thank you""""
+int count=0
+for(vowel in str1) {
+	if(vowel == 'a' || vowel == 'A' || vowel == 'e' || vowel == 'E' || vowel == 'i' || vowel == 'I' || vowel == 'o' || vowel == 'O' || vowel == 'u' || vowel == 'U') {
+		count++
+	}
+}
+println count
+
+op:20
+
+6.Padded binary output 
+Print the numbers from 0 to 15 in binary (use Java's Integer.toBinaryString() method). Use a method in String from the Groovy JDK to make all the output values have four digits. 
+ans:
+for(i in 1..15)
+	println(Integer.toBinaryString(i))
+
+op:1
+10
+11
+100
+101
+110
+111
+1000
+1001
+1010
+1011
+1100
+1101
+1110
+1111
+
+1.Encode and decode 
+i.Create two strings, one for a username and one for a password. Concatenate them together, separated by a colon. Use a method from the Groovy JDK to convert the resulting String to a byte array. Then use the encodeBase64 method on byte array to create an encoded string. 
+ans:username="abc"
+password=1234
+a= "$username : $password"
+println a
+byte[] b=a.getBytes()
+println b
+encoder = Base64.getEncoder()
+encodedString =encoder.encodeToString(b)
+println encodedString
+
+op:
+abc : 1234
+[97, 98, 99, 32, 58, 32, 49, 50, 51, 52]
+YWJjIDogMTIzNA==
+
+ii.Decode the string by using the decodeBase64 method, and using the result as an argument to the String constructor. Use the split method to return the original username and password. 
+ans:decoder = Base64.getDecoder()
+byte[] bytes = decoder.decode(encodedString)
+println(new String(bytes))
+
+op: abc : 1234
+
+2.Sorting a list 
+a class called Course, with a String attribute Create called name and an int attribute called days. Create a list of four course instances, where at least two have the same number of days. Sort the list by number of days. Then, sort the list by days, but when the days are equal, sort by name. 
+ans:class Sorting {
+	
+	String name
+	int days
+	
+	def getval(String n,int d) {
+		def name=n
+		def days=d
+		def list1=[name:n, days:d]
+	}
+	
+
+	static void main(args) {
+		Sorting one=new Sorting()
+		Sorting two=new Sorting()
+		Sorting three=new Sorting()
+		Sorting four=new Sorting()
+		
+		def list2=[one.getval('python', 10),two.getval('groovy',5 ),three.getval('unix', 8),four.getval('git', 5)]
+		def sorted=list2.sort { a,b ->b["days"] <=> a["days"] ?: a["name"] <=> b["name"]  }
+		sorted.each { println it }
+		
+		
+		
+	}
+}
+
+op:[name:python, days:10]
+[name:unix, days:8]
+[name:git, days:5]
+[name:groovy, days:5]
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
